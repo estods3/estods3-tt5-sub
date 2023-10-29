@@ -29,6 +29,11 @@ The GitHub action will automatically build the ASIC files using [OpenLane](https
 - [Learn how semiconductors work](https://tinytapeout.com/siliwiz/)
 - [Join the community](https://discord.gg/rPK2nSjxy8)
 
+- https://github.com/NNgen/nngen
+- https://pypi.org/project/pyverilog/
+- https://github.com/mchong6/MNIST-classifier-in-SystemVerilog
+- https://github.com/pytorch/examples/blob/main/mnist/main.py
+
 ## What next?
 
 - Submit your design to the next shuttle [on the website](https://tinytapeout.com/#submit-your-design). The closing date is **November 4th**.
