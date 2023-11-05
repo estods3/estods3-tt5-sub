@@ -4,31 +4,32 @@
 This project is for a neural network accelerator ASIC for text recognition in MNIST handwritten digit dataset.
 The chip is laid out into 4 main components:
 <pre>
-
-
-   ___________________________________________________________________________________________
-   |   _________         ______________________             __________         __________    |
-   |   |       |         |                    | 0   ----->  |        | 0 --->  |        |    |
-  \/   |  I/O  |         |       Memory       | 1   ----->  |   NN   | 1 --->  | Output |    |
------->| (I2C) | ----->  | Image: 728 bytes   | 2   ----->  |        | 2 --->  |        | --->
-       |       |         | Weights: ??? bytes |     ...     |        |   ...   |        |
-       |_______|         | Biases: ??? bytes  | 782 ----->  |        | 8 --->  |        |
-                         |____________________| 783 ----->  |________| 9 --->  |________|
+   
+   _________________________________________________________________loop back to start to recieve next image_____
+   |                      _________         ______________________             __________         __________    |        7 Segment Display       Interupt Pulse
+   |  ??? serial bytes    |       |         |                    | 0   ----->  |        | 0 --->  |        | ---|             _____
+  \/  728 serial bytes    |  I/O  |         |       Memory       | 1   ----->  |   NN   | 1 --->  | Output | seg1 ------>    |  _  |
+------------------------->| (I2C) | ----->  | Image: 728 bytes   | 2   ----->  |        | 2 --->  |        | seg2 ------>    | |_| |
+                          |       |         | Weights: ??? bytes |     ...     |        |   ...   |        |       ...       | |_| |            
+                          |_______|         | Biases: ??? bytes  | 782 ----->  |        | 8 --->  |        | seg7 ------>    |_____|                   _ 
+                                            |____________________| 783 ----->  |________| 9 --->  |________| Int  --------------------------->  ______| |_______
 </pre>
 ## I/O
-Wait to recieve image over I2C. Read 28x28 image into memory. Read weights and biases for each neuron into memory.
+Recieve image over I2C. Read 28x28 (784 bytes) image into memory. Read weights and biases for each neuron into memory.
 
 ## Memory
-stores the 28x28 (784 bytes) image as wel as the weights and biases for the neural network. memory will only be able to hold one image at a time.
+Stores the 28x28 image as well as the weights and biases for the neural network. Memory will only be able to hold one image at a time.
 
 ## Neutal Network
-Configure neural net with weights and biases and begin processing image from memory. return the classification of the image as "One Hot" encoding using 10 output neurons from neural net.
+Configure neural net with weights and biases and begin processing image from memory. Returns the classification of the image as "One Hot" encoding using 10 output neurons from neural net.
 
 ## Output
 Display the corresponding digit to the highest confidence neuron on 7 segment display. This section should incorporate logic to decode digit into 7 segment logic for external 7 segment display.
 Additionally, the output layer should trigger an additional digital pin as a flag to signal the image has finished being processed and another image can be fed in over I2C
 
-
+# Testing Interface
+A Raspberry Pi will be used to send the images over I2C to the ASIC. When the ASIC finishes computing, it will signal a pulse interupt (Int) to signal to the raspberry pi to send another image.
+The Raspberry Pi will also time the ASIC to see how efficiently it computes each image classification.
 
 ### Tiny Tapeout
 TinyTapeout is an educational project that aims to make it easier and cheaper than ever to get your digital designs manufactured on a real chip.
