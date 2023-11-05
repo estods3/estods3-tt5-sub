@@ -6,21 +6,16 @@ The chip is laid out into 4 main components:
 <pre>
 
 
-  
-________          __________         __________         __________
-
-|       |         |        |         |        |         |        |
-
-|  I/O  |         | Memory |         |   NN   |         | Output | 
-
-|       | ----->  |        | ----->  |        | ----->  |        | ---
-
-|       |         |        |         |        |         |        |
-
-|_______|         |________|         |________|         |________|
+   _________________________________________________________________________
+   |   _________         __________         __________         __________    |
+   |   |       |         |        |         |        |         |        |    |
+  \/   |  I/O  |         | Memory |         |   NN   |         | Output |    |
+------>| (I2C) | ----->  |        | ----->  |        | ----->  |        | --->
+       |       |         |        |         |        |         |        |
+       |_______|         |________|         |________|         |________|
 </pre>
 ## I/O
-Read 28x1 images from I2C bus into memory. Read weights and biases for each neuron into memory.
+Wait to recieve image over I2C. Read 28x1 image into memory. Read weights and biases for each neuron into memory.
 
 ## Memory
 stores the 28x1 image as wel as the weights and biases for the neural network. memory will only be able to hold one image at a time.
