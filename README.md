@@ -4,13 +4,16 @@
 This project is for a neural network accelerator ASIC for text recognition in MNIST handwritten digit dataset.
 The chip is laid out into 4 main components:
 <pre>
+
+
+  
 ________          __________         __________         __________
 
 |       |         |        |         |        |         |        |
 
-|  I/O  |         | Memory |         |   NN   |         | Output |
+|  I/O  |         | Memory |         |   NN   |         | Output | 
 
-|       | ----->  |        | ----->  |        | ----->  |        |
+|       | ----->  |        | ----->  |        | ----->  |        | ---
 
 |       |         |        |         |        |         |        |
 
