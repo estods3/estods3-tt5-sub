@@ -5,7 +5,7 @@ This project is for a neural network accelerator ASIC for text recognition in MN
 The chip is laid out into 4 main components:
 <pre>
    
-   ______________________________________________________loop back to start to recieve next image_____      7 Segment     Interupt
+   ______________________________________________________loop back to start to recieve next image_____      7 Segment     Interrupt
    |                    _________     ______________________           __________       __________    |      Display        Pulse
    |  ??? serial bytes  |       |     |                    | 0   ---> |        | 0 ---> |        | ---|       _____
   \/  728 serial bytes  |  I/O  |     |       Memory       | 1   ---> |   NN   | 1 ---> | Output | seg1 ---> |  _  |
@@ -28,7 +28,7 @@ Display the corresponding digit to the highest confidence neuron on 7 segment di
 Additionally, the output layer should trigger an additional digital pin as a flag to signal the image has finished being processed and another image can be fed in over I2C
 
 # Testing Interface
-A Raspberry Pi will be used to send the images over I2C to the ASIC. When the ASIC finishes computing, it will signal a pulse interupt (Int) to signal to the raspberry pi to send another image.
+A Raspberry Pi will be used to send the images over I2C to the ASIC. When the ASIC finishes computing, it will transmit a pulse interrupt (Int) to signal to the raspberry pi to send another image.
 The Raspberry Pi will also time the ASIC to see how efficiently it computes each image classification.
 
 ### Tiny Tapeout
