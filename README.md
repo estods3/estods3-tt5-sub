@@ -4,21 +4,25 @@
 This project is for a neural network accelerator ASIC for text recognition in MNIST handwritten digit dataset.
 The chip is laid out into 4 main components:
 ________          _________         _________         _________
+
 |       |         |       |         |       |         |       |
+
 |  I/O  |         |Memory |         |  NN   |         |       |
+
 |       | ----->  |       | ----->  |       | ----->  |       |
+
 |       |         |       |         |       |         |       |
+
 |_______|         |_______|         |_______|         |_______|
 
 ## I/O
-Read 28x1 images into memory. Read weights and biases for each neuron into memory
-
+Read 28x1 images from I2C bus into memory. Read weights and biases for each neuron into memory.
 
 ## Memory
-
+stores the 28x1 image as wel as the weights and biases for the neural network. memory will only be able to hold one image at a time.
 
 ## Neutal Network
-
+Configure neural net with weights and biases and begin processing image from memory. return the classification of the image as a single byte as well as the confidence.
 
 ## Output
 Display the decoded digit on 7 segment display. This section should incorporate logic to decode a binary coded decimal (BCD) into 7 segment logic for external 7 segment display.
