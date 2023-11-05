@@ -5,14 +5,14 @@ This project is for a neural network accelerator ASIC for text recognition in MN
 The chip is laid out into 4 main components:
 <pre>
    
-   _________________________________________________________________loop back to start to recieve next image_____
-   |                      _________         ______________________             __________         __________    |        7 Segment Display       Interupt Pulse
-   |  ??? serial bytes    |       |         |                    | 0   ----->  |        | 0 --->  |        | ---|             _____
-  \/  728 serial bytes    |  I/O  |         |       Memory       | 1   ----->  |   NN   | 1 --->  | Output | seg1 ------>    |  _  |
-------------------------->| (I2C) | ----->  | Image: 728 bytes   | 2   ----->  |        | 2 --->  |        | seg2 ------>    | |_| |
-                          |       |         | Weights: ??? bytes |     ...     |        |   ...   |        |       ...       | |_| |            
-                          |_______|         | Biases: ??? bytes  | 782 ----->  |        | 8 --->  |        | seg7 ------>    |_____|                   _ 
-                                            |____________________| 783 ----->  |________| 9 --->  |________| Int  --------------------------->  ______| |_______
+   ______________________________________________________loop back to start to recieve next image_____      7 Segment     Interupt
+   |                    _________     ______________________           __________       __________    |      Display        Pulse
+   |  ??? serial bytes  |       |     |                    | 0   ---> |        | 0 ---> |        | ---|       _____
+  \/  728 serial bytes  |  I/O  |     |       Memory       | 1   ---> |   NN   | 1 ---> | Output | seg1 ---> |  _  |
+----------------------->| (I2C) | --> | Image: 728 bytes   | 2   ---> | 2 Conv | 2 ---> |        | seg2 ---> | |_| |
+                        |       |     | Weights: ??? bytes |     ...  | 2 Drop |   ...  |        |      ...  | |_| |            
+                        |_______|     | Biases: ??? bytes  | 782 ---> |        | 8 ---> |        | seg7 ---> |_____|         _ 
+                                      |____________________| 783 ---> |________| 9 ---> |________| Int  ----- --------->  __| |___
 </pre>
 ## I/O
 Recieve image over I2C. Read 28x28 (784 bytes) image into memory. Read weights and biases for each neuron into memory.
