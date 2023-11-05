@@ -6,19 +6,20 @@ The chip is laid out into 4 main components:
 <pre>
 
 
-   _________________________________________________________________________
-   |   _________         __________         __________         __________    |
-   |   |       |         |        |         |        |         |        |    |
-  \/   |  I/O  |         | Memory |         |   NN   |         | Output |    |
------->| (I2C) | ----->  |        | ----->  |        | ----->  |        | --->
-       |       |         |        |         |        |         |        |
-       |_______|         |________|         |________|         |________|
+   _______________________________________________________________________________________
+   |   _________         ______________________         __________         __________    |
+   |   |       |         |                    |         |        |         |        |    |
+  \/   |  I/O  |         |       Memory       |         |   NN   |         | Output |    |
+------>| (I2C) | ----->  | Image: 728 bytes   | ----->  |        | ----->  |        | --->
+       |       |         | Weights: ??? bytes |         |        |         |        |
+       |_______|         | Biases: ??? bytes  |         |        |         |        |
+                         |____________________|         |________|         |________|
 </pre>
 ## I/O
-Wait to recieve image over I2C. Read 28x1 image into memory. Read weights and biases for each neuron into memory.
+Wait to recieve image over I2C. Read 28x28 image into memory. Read weights and biases for each neuron into memory.
 
 ## Memory
-stores the 28x1 image as wel as the weights and biases for the neural network. memory will only be able to hold one image at a time.
+stores the 28x28 (784 bytes) image as wel as the weights and biases for the neural network. memory will only be able to hold one image at a time.
 
 ## Neutal Network
 Configure neural net with weights and biases and begin processing image from memory. return the classification of the image as a single byte as well as the confidence.
