@@ -3,18 +3,19 @@
 # MNIST Neural Network Accelerator
 This project is for a neural network accelerator ASIC for text recognition in MNIST handwritten digit dataset.
 The chip is laid out into 4 main components:
-________          _________         _________         _________
+<pre>
+________          __________         __________         __________
 
-|       |         |       |         |       |         |       |
+|       |         |        |         |        |         |        |
 
-|  I/O  |         |Memory |         |  NN   |         |       |
+|  I/O  |         | Memory |         |   NN   |         | Output |
 
-|       | ----->  |       | ----->  |       | ----->  |       |
+|       | ----->  |        | ----->  |        | ----->  |        |
 
-|       |         |       |         |       |         |       |
+|       |         |        |         |        |         |        |
 
-|_______|         |_______|         |_______|         |_______|
-
+|_______|         |________|         |________|         |________|
+</pre>
 ## I/O
 Read 28x1 images from I2C bus into memory. Read weights and biases for each neuron into memory.
 
