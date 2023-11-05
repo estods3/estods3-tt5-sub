@@ -30,23 +30,25 @@ Display the decoded digit on 7 segment display. This section should incorporate 
 Additionally, the output layer should trigger an additional digital pin as a flag to signal the image has finished being processed and another image can be fed in over I2C
 
 
+
+### Tiny Tapeout
 TinyTapeout is an educational project that aims to make it easier and cheaper than ever to get your digital designs manufactured on a real chip.
 
 To learn more and get started, visit https://tinytapeout.com.
 
-## Wokwi Projects
+#### Wokwi Projects
 
 Edit the [info.yaml](info.yaml) and change the wokwi_id to the ID of your Wokwi project. You can find the ID in the URL of your project, it's the big number after `wokwi.com/projects/`.
 
 The GitHub action will automatically fetch the digital netlist from Wokwi and build the ASIC files.
 
-## Verilog Projects
+#### Verilog Projects
 
 Edit the [info.yaml](info.yaml) and uncomment the `source_files` and `top_module` properties, and change the value of `language` to "Verilog". Add your Verilog files to the `src` folder, and list them in the `source_files` property.
 
 The GitHub action will automatically build the ASIC files using [OpenLane](https://www.zerotoasiccourse.com/terminology/openlane/).
 
-## Enable GitHub actions to build the results page
+#### Enable GitHub actions to build the results page
 
 - [Enabling GitHub Pages](https://tinytapeout.com/faq/#my-github-action-is-failing-on-the-pages-part)
 
@@ -62,7 +64,7 @@ The GitHub action will automatically build the ASIC files using [OpenLane](https
 - https://github.com/mchong6/MNIST-classifier-in-SystemVerilog
 - https://github.com/pytorch/examples/blob/main/mnist/main.py
 
-## What next?
+#### What next?
 
 - Submit your design to the next shuttle [on the website](https://tinytapeout.com/#submit-your-design). The closing date is **November 4th**.
 - Edit this [README](README.md) and explain your design, how it works, and how to test it.
