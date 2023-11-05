@@ -1,6 +1,29 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/wokwi_test/badge.svg)
 
-# What is Tiny Tapeout?
+# MNIST Neural Network Accelerator
+This project is for a neural network accelerator ASIC for text recognition in MNIST handwritten digit dataset.
+The chip is laid out into 4 main components:
+________          _________         _________         _________
+|       |         |       |         |       |         |       |
+|  I/O  |         |Memory |         |  NN   |         |       |
+|       | ----->  |       | ----->  |       | ----->  |       |
+|       |         |       |         |       |         |       |
+|_______|         |_______|         |_______|         |_______|
+
+## I/O
+Read 28x1 images into memory. Read weights and biases for each neuron into memory
+
+
+## Memory
+
+
+## Neutal Network
+
+
+## Output
+Display the decoded digit on 7 segment display. This section should incorporate logic to decode a binary coded decimal (BCD) into 7 segment logic for external 7 segment display.
+Additionally, the output layer should trigger an additional digital pin as a flag to signal the image has finished being processed and another image can be fed in over I2C
+
 
 TinyTapeout is an educational project that aims to make it easier and cheaper than ever to get your digital designs manufactured on a real chip.
 
