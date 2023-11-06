@@ -64,6 +64,9 @@ The GitHub action will automatically build the ASIC files using [OpenLane](https
 - https://github.com/mchong6/MNIST-classifier-in-SystemVerilog
 - https://github.com/pytorch/examples/blob/main/mnist/main.py
 
+- Other dataset possibilities:
+- https://www.kaggle.com/datasets/prasadvpatil/eye-dataset
+
 #### What next?
 
 - Submit your design to the next shuttle [on the website](https://tinytapeout.com/#submit-your-design). The closing date is **November 4th**.
